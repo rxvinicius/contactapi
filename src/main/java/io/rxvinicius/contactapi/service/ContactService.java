@@ -48,6 +48,7 @@ public class ContactService {
         log.info("Uploading photo for user ID: {}", id);
         Contact contact = getContactById(id);
         String photoUrl = photoFunction.apply(id, file);
+        log.info("photo url: {}", photoUrl);
         contact.setPhotoUrl(photoUrl);
         contactRepo.save(contact);
         return photoUrl;
@@ -70,7 +71,7 @@ public class ContactService {
             }
 
             Files.copy(image.getInputStream(), fileStorageLocation.resolve(fileName), REPLACE_EXISTING);
-            return ServletUriComponentsBuilder.fromCurrentContextPath().path("/contacts/image" + fileName).toUriString();
+            return ServletUriComponentsBuilder.fromCurrentContextPath().path("/contacts/image/" + fileName).toUriString();
         } catch (Exception exception) {
             throw new RuntimeException(exception);
         }
