@@ -20,7 +20,6 @@ spring:
       max-file-size: 1000MB
       max-request-size: 1000MB
   mvc:
-    throw-exception-if-no-handler-found: true
     async:
       request-timeout: 3600000
 server:
