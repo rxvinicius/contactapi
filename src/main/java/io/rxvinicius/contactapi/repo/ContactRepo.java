@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface ContactRepo extends JpaRepository<Contact, String> {
-    Optional<Contact> findById(String id);
+
 }
