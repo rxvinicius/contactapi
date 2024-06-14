@@ -55,7 +55,7 @@ public class ContactResource {
         return Files.readAllBytes(Paths.get(Contants.PHOTO_DIRECTORY + filename));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteContact(@PathVariable(value = "id") String id) {
         // TODO: Improve error handling
         // If the user does not exist, it will throw an error
